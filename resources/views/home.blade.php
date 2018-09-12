@@ -35,6 +35,7 @@
             <header class="post-header">
                 <h1 class="post-title">
                     {{--{{route('post.show',$post->title,$post->id)}}--}}
+                    {{ $post->title }}
                 </h1>
                 <div class="clearfix">
                     <!-- explode ("区切り文字", "分割する文字列"); -->
@@ -43,8 +44,9 @@
                 </div>
             </header>
             <div class="post-content">
-                {{--<p>{{$post->read_more.' ...'}}</p>--}}
+                <p>{{$post->read_more.' ...'}}</p>
                 {{--{{route('post.show','続きを読む',$post->id)}}--}}
+                <p><a href="{{ $post->id }}" class="btn btn-primary">続きを読む</a></p>
             </div>
             <footer class="post-footer">
                 <hr>
