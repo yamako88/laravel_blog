@@ -11,16 +11,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Comment;
 
+/**
+ * Class Post
+ * @package App\Models
+ */
 class Post extends Model
 {
 
+    /**
+     * @var array
+     */
     protected $fillable = ['title', 'content'];
 
-    public function comments(){
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
         return $this->hasMany('App\Models\Comment');
     }
 
-    public function user(){
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
         return $this->belongsTo('User');
     }
 

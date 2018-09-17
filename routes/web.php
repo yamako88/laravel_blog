@@ -11,12 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get(/**
+ * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+ */
+    '/', function () {
+    return view('auth.login');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//記事一覧
+Route::get('/home', 'HomeController@index');
 
-//Route::get('/index', 'PostsController@index');
+//記事
+Route::get('/{post}show', 'PostsController@showPost');
+
+//記事編集
+Route::get('/{post}edit', 'PostsController@editPost');
+Route::post('/{post}update', 'PostsController@updatePost');
+
+//記事削除
+Route::get('/post/{post}/delete', 'PostsController@deletePost');
+
+//記事新規投稿
+Route::get('/new', 'PostsController@newPost');
+Route::post('/save', 'PostsController@savePost');

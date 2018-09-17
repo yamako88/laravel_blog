@@ -8,7 +8,6 @@ use Illuminate\Database\Seeder;
  * Date: 2018/09/10
  * Time: 16:16
  */
-
 class UserTableSeeder extends Seeder
 {
     public function run()

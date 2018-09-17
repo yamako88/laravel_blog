@@ -4,7 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Post;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class HomeController
+ * @package App\Http\Controllers
+ */
 class HomeController extends Controller
 {
     /**
@@ -25,7 +31,8 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('home')->with('posts', $posts);
-//        return view('home');
+        $user = Auth::user();
+
+        return view('home', ['posts' => $posts], ['user' => $user]);
     }
 }

@@ -11,20 +11,40 @@ namespace App\models;
 use Illuminate\Database\Eloquent\Model;
 
 
+/**
+ * Class Comment
+ * @package App\models
+ */
 class Comment extends Model
 {
 
+    /**
+     * @var array
+     */
     protected $fillable = ['commenter', 'email', 'comment'];
 
-    public function post(){
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function post()
+    {
         return $this->belongsTo('Post');
     }
 
-    public function getApprovedAttribute($approved){
+    /**
+     * @param $approved
+     * @return string
+     */
+    public function getApprovedAttribute($approved)
+    {
         return (intval($approved) == 1) ? 'yes' : 'no';
     }
 
-    public function setApprovedAttribute($approved){
+    /**
+     * @param $approved
+     */
+    public function setApprovedAttribute($approved)
+    {
         $this->attributes['approved'] = ($approved === 'yes') ? 1 : 0;
     }
 

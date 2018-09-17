@@ -10,13 +10,13 @@ use Illuminate\Database\Seeder;
  * Date: 2018/09/10
  * Time: 15:46
  */
-
 class PostCommentSeeder extends Seeder
 {
-    public function run(){
+    public function run()
+    {
         $content = 'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。';
 
-        for( $i = 1 ; $i <= 20 ; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             $post = new Post;
             $post->title = "$i 番目の投稿";
             $post->author_id = 1;
@@ -25,7 +25,7 @@ class PostCommentSeeder extends Seeder
             $post->save();
 
             $maxComments = mt_rand(3, 15);
-            for ($j=0; $j <= $maxComments; $j++) {
+            for ($j = 0; $j <= $maxComments; $j++) {
                 $comment = new Comment;
                 $comment->commenter = '名無し';
                 $comment->comment = substr($content, 0, 120);
