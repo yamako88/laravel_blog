@@ -17,6 +17,7 @@
         <th width="120">編集</th>
         <th width="120">削除</th>
         <th width="120">閲覧</th>
+        <th width="120">投稿者</th>
     </tr>
     </thead>
     <tbody>
@@ -27,10 +28,21 @@
                 <td><a href="{{ $post->id }}edit">Edit</a></td>
                 <td><a href="post/{{ $post->id }}/delete" onclick='return confirm("削除します。よろしいですか？");'>Delete</a></td>
                 <td><a href="{{ $post->id }}show">View</a></td>
+                <td><a href="{{ $post->id }}users">{{ $user->username }}</a></td>
+            </tr>
+            @else
+            <tr>
+                <td>{{$post->title}}</td>
+                <td></td>
+                <td></td>
+                <td><a href="{{ $post->id }}show">View</a></td>
+                <td><a href="{{ $post->id }}users">{{ $post->username }}</a></td>
             </tr>
         @endif
     @endforeach
     </tbody>
 </table>
+
+{{ $posts->links() }}
 
 @stop

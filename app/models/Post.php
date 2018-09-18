@@ -17,11 +17,12 @@ use App\Models\Comment;
  */
 class Post extends Model
 {
-
     /**
      * @var array
      */
-    protected $fillable = ['title', 'content'];
+    protected $fillable = [
+        'title', 'content', 'comment_count',
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 //記事
-Route::get('/{post}show', 'PostsController@showPost');
+Route::get('/{post}show', 'PostsController@showPost')->name('post.show');
 
 //記事編集
 Route::get('/{post}edit', 'PostsController@editPost');
@@ -36,3 +36,9 @@ Route::get('/post/{post}/delete', 'PostsController@deletePost');
 //記事新規投稿
 Route::get('/new', 'PostsController@newPost');
 Route::post('/save', 'PostsController@savePost');
+
+//投稿者ごとの記事一覧
+Route::get('/{post}users', 'HomeController@users');
+
+//コメント投稿
+Route::post('/{post}comment', 'CommentsController@saveComment')->name('post.comment');

@@ -41,8 +41,7 @@ class PostsController extends Controller
     {
         $posts = Post::find($post);
         $comments = Comment::all()->where('post_id', $post);
-        $user = Auth::user();
-        return view('single', ['posts' => $posts], ['comments' => $comments], ['user' => $user]);
+        return view('single', ['posts' => $posts], ['comments' => $comments]);
     }
 
     /**

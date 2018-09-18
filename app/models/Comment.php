@@ -21,7 +21,9 @@ class Comment extends Model
     /**
      * @var array
      */
-    protected $fillable = ['commenter', 'email', 'comment'];
+    protected $fillable = [
+        'commenter', 'email', 'comment'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

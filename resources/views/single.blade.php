@@ -44,6 +44,35 @@
     @else
         <h2>{{$posts->title}}にコメントはありません</h2>
     @endif
+
+        <div id="reply">
+            <h2>コメントを残す</h2>
+            @if(Session::has('success'))
+                <div data-alert class="alert-box round">
+                    {{Session::get('success')}}
+                    <a href="#" class="close">&times;</a>
+                </div>
+            @endif
+
+            <form method="post" action="{{ $posts->id }}comment">
+                {{ csrf_field() }}
+            <div class="row">
+                <div class="small-7 large-7 column">
+                    <label for="comment">内容:</label>
+                    <textarea class="form-control" id="bodyInput" rows="5" name="comment" value="{{ old('comment') }}"></textarea>
+                </div>
+            </div>
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <div data-alert class="alert-box warning round">
+                        {{$error}}
+                        <a href="#" class="close">&times;</a>
+                    </div>
+                @endforeach
+            @endif
+                <button type="submit" class="button tiny radiu btn btn-primary">送信する</button>
+            </form>
+        </div>
 </section>
 
 @stop
