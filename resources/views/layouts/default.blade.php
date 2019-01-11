@@ -75,5 +75,6 @@
 <script>
     $(document).foundation();
 </script>
-</body>
+
+ </body>
 </html>
